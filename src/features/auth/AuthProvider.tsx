@@ -1,5 +1,6 @@
 import {
   createContext,
+  useCallback,
   useEffect,
   useState,
   type ReactNode,
@@ -11,15 +12,9 @@ import {
   signUpWithEmail,
   signOutUser,
 } from "./services/auth.service";
-
-export interface AuthContextValue {
-  user: User | null;
-  session: Session | null;
-  isLoading: boolean;
-  signIn: (email: string, password: string) => Promise<{ error?: string }>;
-  signUp: (email: string, password: string) => Promise<{ error?: string }>;
-  signOut: () => Promise<void>;
-}
+import { getCurrentProfile } from "./services/profile.service";
+import type { ProfileRow } from "../../types/supabase";
+import type { AuthContextValue } from "./types/auth.types";
 
 export const AuthContext = createContext<AuthContextValue | null>(null);
 
@@ -30,25 +25,48 @@ interface AuthProviderProps {
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
+  const [profile, setProfile] = useState<ProfileRow | null>(null);
+  const [profileError, setProfileError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  const refreshProfile = useCallback(async () => {
+    try {
+      setProfileError(null);
+      const currentProfile = await getCurrentProfile();
+      setProfile(currentProfile);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Erreur lors du chargement du profil";
+      setProfileError(message);
+    }
+  }, []);
+
+  const handleSessionChange = useCallback(async (currentSession: Session | null) => {
+    setSession(currentSession);
+    setUser(currentSession?.user ?? null);
+
+    if (currentSession?.user) {
+      await refreshProfile();
+    } else {
+      setProfile(null);
+      setProfileError(null);
+    }
+
+    setIsLoading(false);
+  }, [refreshProfile]);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session: currentSession } }) => {
-      setSession(currentSession);
-      setUser(currentSession?.user ?? null);
-      setIsLoading(false);
+      handleSessionChange(currentSession);
     });
 
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, currentSession) => {
-      setSession(currentSession);
-      setUser(currentSession?.user ?? null);
-      setIsLoading(false);
+      handleSessionChange(currentSession);
     });
 
     return () => subscription.unsubscribe();
-  }, []);
+  }, [handleSessionChange]);
 
   const signIn = async (email: string, password: string) => {
     const result = await signInWithEmail(email, password);
@@ -66,11 +84,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
     await signOutUser();
     setUser(null);
     setSession(null);
+    setProfile(null);
+    setProfileError(null);
   };
 
   return (
     <AuthContext.Provider
-      value={{ user, session, isLoading, signIn, signUp, signOut }}
+      value={{ user, session, profile, profileError, isLoading, signIn, signUp, signOut, refreshProfile }}
     >
       {children}
     </AuthContext.Provider>
