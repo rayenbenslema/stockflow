@@ -1,6 +1,6 @@
 # API Contracts
 
-This document expands future API rules defined in `../../CONSTITUTION.md`.
+This document expands future API rules defined in `../../CONSTITUTION.md` (§53). It does NOT override the constitution.
 
 ## Status
 

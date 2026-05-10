@@ -1,6 +1,8 @@
 # StockFlow Flows
 
-This document expands the UML and lifecycle rules defined in `../../CONSTITUTION.md`.
+This document expands the UML and lifecycle rules defined in `../../CONSTITUTION.md` (§59-60). It does NOT override the constitution.
+
+---
 
 ## Product Sale Flow
 
@@ -15,8 +17,13 @@ POS
 → Create Audit Logs
 → Generate PDF
 → Queue Compliance
+```
+
+---
 
 ## Compliance Flow
+
+```txt
 Draft Invoice
 → Validation
 → Lock Number
@@ -26,3 +33,4 @@ Draft Invoice
 → Submit to TTN later
 → Receive Reference
 → Archive Permanently
+```

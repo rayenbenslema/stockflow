@@ -1,6 +1,6 @@
 # StockFlow Design System
 
-This document expands the UI/UX rules defined in `../../CONSTITUTION.md`.
+This document expands the UI/UX rules defined in `../../CONSTITUTION.md`. It does NOT override the constitution.
 
 ## Rule
 

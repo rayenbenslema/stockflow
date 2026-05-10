@@ -1,6 +1,6 @@
 # Tunisian Facturation Compliance
 
-This document expands the compliance rules defined in `../../CONSTITUTION.md`.
+This document expands the compliance rules defined in `../../CONSTITUTION.md` (§25-33). It does NOT override the constitution.
 
 ## Status
 
@@ -8,9 +8,9 @@ Draft. Accountant and TTN validation required before public launch.
 
 ## Mandatory Architecture
 
-The platform must be TTN / El Fatoora ready through a compliance adapter.
+The platform must be TTN / El Fatoora ready through a modular compliance adapter.
 
-Flow:
+## Compliance Flow
 
 ```txt
 Invoice Engine
@@ -20,3 +20,4 @@ Invoice Engine
 → TTN / Ministry connector later
 → Store official reference
 → Archive immutably
+```
