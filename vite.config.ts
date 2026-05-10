@@ -15,4 +15,16 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "react-vendor": ["react", "react-dom", "react-router"],
+          "chart-vendor": ["apexcharts", "react-apexcharts"],
+          "calendar-vendor": ["@fullcalendar/core", "@fullcalendar/react", "@fullcalendar/daygrid", "@fullcalendar/timegrid", "@fullcalendar/interaction", "@fullcalendar/list"],
+          "ui-vendor": ["flatpickr", "react-dropzone"],
+        },
+      },
+    },
+  },
 });
