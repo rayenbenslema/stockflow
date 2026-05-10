@@ -11,7 +11,7 @@ const EmptyState = ({
   actionLabel,
   onAction,
 }: EmptyStateProps) => (
-  <div className="flex min-h-[40vh] flex-col items-center justify-center px-4 text-center">
+  <div className="flex min-h-[40vh] flex-col items-center justify-center px-4 text-center" role="status">
     <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800">
       <svg
         className="h-7 w-7 text-gray-400 dark:text-gray-500"
