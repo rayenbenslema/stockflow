@@ -7,74 +7,73 @@ import {
 } from "../ui/table";
 import Badge from "../ui/badge/Badge";
 
-// Define the TypeScript interface for the table rows
+// Composant conservé comme infrastructure UI — données démo neutres
 interface Product {
-  id: number; // Unique identifier for each product
-  name: string; // Product name
-  variants: string; // Number of variants (e.g., "1 Variant", "2 Variants")
-  category: string; // Category of the product
-  price: string; // Price of the product (as a string with currency symbol)
-  // status: string; // Status of the product
-  image: string; // URL or path to the product image
-  status: "Delivered" | "Pending" | "Canceled"; // Status of the product
+  id: number;
+  name: string;
+  variants: string;
+  category: string;
+  price: string;
+  image: string;
+  status: "Delivered" | "Pending" | "Canceled";
 }
 
-// Define the table data using the interface
 const tableData: Product[] = [
   {
     id: 1,
-    name: "MacBook Pro 13”",
-    variants: "2 Variants",
-    category: "Laptop",
-    price: "$2399.00",
+    name: "Produit A",
+    variants: "2 déclinaisons",
+    category: "Catégorie 1",
+    price: "1 200 DT",
     status: "Delivered",
-    image: "/images/product/product-01.jpg", // Replace with actual image URL
+    image: "/images/product/product-01.jpg",
   },
   {
     id: 2,
-    name: "Apple Watch Ultra",
-    variants: "1 Variant",
-    category: "Watch",
-    price: "$879.00",
+    name: "Produit B",
+    variants: "1 déclinaison",
+    category: "Catégorie 2",
+    price: "450 DT",
     status: "Pending",
-    image: "/images/product/product-02.jpg", // Replace with actual image URL
+    image: "/images/product/product-02.jpg",
   },
   {
     id: 3,
-    name: "iPhone 15 Pro Max",
-    variants: "2 Variants",
-    category: "SmartPhone",
-    price: "$1869.00",
+    name: "Produit C",
+    variants: "3 déclinaisons",
+    category: "Catégorie 1",
+    price: "890 DT",
     status: "Delivered",
-    image: "/images/product/product-03.jpg", // Replace with actual image URL
+    image: "/images/product/product-03.jpg",
   },
   {
     id: 4,
-    name: "iPad Pro 3rd Gen",
-    variants: "2 Variants",
-    category: "Electronics",
-    price: "$1699.00",
+    name: "Produit D",
+    variants: "1 déclinaison",
+    category: "Catégorie 3",
+    price: "2 300 DT",
     status: "Canceled",
-    image: "/images/product/product-04.jpg", // Replace with actual image URL
+    image: "/images/product/product-04.jpg",
   },
   {
     id: 5,
-    name: "AirPods Pro 2nd Gen",
-    variants: "1 Variant",
-    category: "Accessories",
-    price: "$240.00",
+    name: "Produit E",
+    variants: "2 déclinaisons",
+    category: "Catégorie 2",
+    price: "150 DT",
     status: "Delivered",
-    image: "/images/product/product-05.jpg", // Replace with actual image URL
+    image: "/images/product/product-05.jpg",
   },
 ];
 
 export default function RecentOrders() {
+  // Activité récente — données démo
   return (
     <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white px-4 pb-3 pt-4 dark:border-gray-800 dark:bg-white/[0.03] sm:px-6">
       <div className="flex flex-col gap-2 mb-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
-            Recent Orders
+            Activité récente
           </h3>
         </div>
 
@@ -115,10 +114,10 @@ export default function RecentOrders() {
                 strokeWidth="1.5"
               />
             </svg>
-            Filter
+            Filtre
           </button>
           <button className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-theme-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
-            See all
+            Voir tout
           </button>
         </div>
       </div>
@@ -131,7 +130,7 @@ export default function RecentOrders() {
                 isHeader
                 className="py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
               >
-                Products
+                Produits
               </TableCell>
               <TableCell
                 isHeader

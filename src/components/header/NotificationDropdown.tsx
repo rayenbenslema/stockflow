@@ -77,7 +77,6 @@ export default function NotificationDropdown() {
           </button>
         </div>
         <ul className="flex flex-col h-auto overflow-y-auto custom-scrollbar">
-          {/* Example notification items */}
           <li>
             <DropdownItem
               onItemClick={closeDropdown}
@@ -95,20 +94,17 @@ export default function NotificationDropdown() {
               </span>
 
               <span className="block">
-                <span className="mb-1.5 block  text-theme-sm text-gray-500 dark:text-gray-400 space-x-1">
+                <span className="mb-1.5 block text-theme-sm text-gray-500 dark:text-gray-400">
                   <span className="font-medium text-gray-800 dark:text-white/90">
-                    Terry Franci
+                    Nouveau client
                   </span>
-                  <span> requests permission to change</span>
-                  <span className="font-medium text-gray-800 dark:text-white/90">
-                    Project - Nganter App
-                  </span>
+                  <span> inscrit — Boutique Atlas</span>
                 </span>
 
                 <span className="flex items-center gap-2 text-gray-500 text-theme-xs dark:text-gray-400">
-                  <span>Project</span>
+                  <span>Client</span>
                   <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
-                  <span>5 min ago</span>
+                  <span>5 min</span>
                 </span>
               </span>
             </DropdownItem>
@@ -133,18 +129,15 @@ export default function NotificationDropdown() {
               <span className="block">
                 <span className="mb-1.5 block space-x-1 text-theme-sm text-gray-500 dark:text-gray-400">
                   <span className="font-medium text-gray-800 dark:text-white/90">
-                    Alena Franci
+                    Stock bas
                   </span>
-                  <span>requests permission to change</span>
-                  <span className="font-medium text-gray-800 dark:text-white/90">
-                    Project - Nganter App
-                  </span>
+                  <span>— 3 articles sous le seuil minimum</span>
                 </span>
 
                 <span className="flex items-center gap-2 text-gray-500 text-theme-xs dark:text-gray-400">
-                  <span>Project</span>
+                  <span>Stock</span>
                   <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
-                  <span>8 min ago</span>
+                  <span>8 min</span>
                 </span>
               </span>
             </DropdownItem>
@@ -169,18 +162,15 @@ export default function NotificationDropdown() {
               <span className="block">
                 <span className="mb-1.5 block space-x-1 text-theme-sm text-gray-500 dark:text-gray-400">
                   <span className="font-medium text-gray-800 dark:text-white/90">
-                    Jocelyn Kenter
+                    Facture #F-2024-001
                   </span>
-                  <span> requests permission to change</span>
-                  <span className="font-medium text-gray-800 dark:text-white/90">
-                    Project - Nganter App
-                  </span>
+                  <span> validée et verrouillée</span>
                 </span>
 
                 <span className="flex items-center gap-2 text-gray-500 text-theme-xs dark:text-gray-400">
-                  <span>Project</span>
+                  <span>Facture</span>
                   <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
-                  <span>15 min ago</span>
+                  <span>15 min</span>
                 </span>
               </span>
             </DropdownItem>
@@ -206,18 +196,15 @@ export default function NotificationDropdown() {
               <span className="block">
                 <span className="mb-1.5 space-x-1 block text-theme-sm text-gray-500 dark:text-gray-400">
                   <span className="font-medium text-gray-800 dark:text-white/90">
-                    Brandon Philips
+                    Paiement en retard
                   </span>
-                  <span>requests permission to change</span>
-                  <span className="font-medium text-gray-800 dark:text-white/90">
-                    Project - Nganter App
-                  </span>
+                  <span>— client Boutique Atlas</span>
                 </span>
 
                 <span className="flex items-center gap-2 text-gray-500 text-theme-xs dark:text-gray-400">
-                  <span>Project</span>
+                  <span>Paiement</span>
                   <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
-                  <span>1 hr ago</span>
+                  <span>1 h</span>
                 </span>
               </span>
             </DropdownItem>
@@ -242,18 +229,15 @@ export default function NotificationDropdown() {
               <span className="block">
                 <span className="mb-1.5 block space-x-1 text-theme-sm text-gray-500 dark:text-gray-400">
                   <span className="font-medium text-gray-800 dark:text-white/90">
-                    Terry Franci
+                    Nouvelle commande
                   </span>
-                  <span> requests permission to change</span>
-                  <span className="font-medium text-gray-800 dark:text-white/90">
-                    Project - Nganter App
-                  </span>
+                  <span>— 12 articles à préparer</span>
                 </span>
 
                 <span className="flex items-center gap-2 text-gray-500 text-theme-xs dark:text-gray-400">
-                  <span>Project</span>
+                  <span>Commande</span>
                   <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
-                  <span>5 min ago</span>
+                  <span>5 min</span>
                 </span>
               </span>
             </DropdownItem>
@@ -278,18 +262,15 @@ export default function NotificationDropdown() {
               <span className="block">
                 <span className="mb-1.5 block space-x-1 text-theme-sm text-gray-500 dark:text-gray-400">
                   <span className="font-medium text-gray-800 dark:text-white/90">
-                    Alena Franci
+                    Export prêt
                   </span>
-                  <span> requests permission to change</span>
-                  <span className="font-medium text-gray-800 dark:text-white/90">
-                    Project - Nganter App
-                  </span>
+                  <span>— rapport TVA téléchargeable</span>
                 </span>
 
                 <span className="flex items-center gap-2 text-gray-500 text-theme-xs dark:text-gray-400">
-                  <span>Project</span>
+                  <span>Export</span>
                   <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
-                  <span>8 min ago</span>
+                  <span>8 min</span>
                 </span>
               </span>
             </DropdownItem>
@@ -312,20 +293,17 @@ export default function NotificationDropdown() {
               </span>
 
               <span className="block">
-                <span className="mb-1.5 block  space-x-1 text-theme-sm text-gray-500 dark:text-gray-400">
+                <span className="mb-1.5 block space-x-1 text-theme-sm text-gray-500 dark:text-gray-400">
                   <span className="font-medium text-gray-800 dark:text-white/90">
-                    Jocelyn Kenter
+                    Réapprovisionnement
                   </span>
-                  <span> requests permission to change</span>
-                  <span className="font-medium text-gray-800 dark:text-white/90">
-                    Project - Nganter App
-                  </span>
+                  <span> suggéré pour 5 produits</span>
                 </span>
 
                 <span className="flex items-center gap-2 text-gray-500 text-theme-xs dark:text-gray-400">
-                  <span>Project</span>
+                  <span>Stock</span>
                   <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
-                  <span>15 min ago</span>
+                  <span>15 min</span>
                 </span>
               </span>
             </DropdownItem>
@@ -342,37 +320,33 @@ export default function NotificationDropdown() {
                   height={40}
                   src="/images/user/user-05.jpg"
                   alt="User"
-                  className="overflow-hidden rounded-full"
+                  className="w-full overflow-hidden rounded-full"
                 />
                 <span className="absolute bottom-0 right-0 z-10 h-2.5 w-full max-w-2.5 rounded-full border-[1.5px] border-white bg-error-500 dark:border-gray-900"></span>
               </span>
 
               <span className="block">
-                <span className="mb-1.5 block space-x-1 text-theme-sm text-gray-500 dark:text-gray-400">
+                <span className="mb-1.5 space-x-1 block text-theme-sm text-gray-500 dark:text-gray-400">
                   <span className="font-medium text-gray-800 dark:text-white/90">
-                    Brandon Philips
+                    Synchronisation TTN
                   </span>
-                  <span>requests permission to change</span>
-                  <span className="font-medium text-gray-800 dark:text-white/90">
-                    Project - Nganter App
-                  </span>
+                  <span>— 3 factures en attente</span>
                 </span>
 
                 <span className="flex items-center gap-2 text-gray-500 text-theme-xs dark:text-gray-400">
-                  <span>Project</span>
+                  <span>Conformité</span>
                   <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
-                  <span>1 hr ago</span>
+                  <span>30 min</span>
                 </span>
               </span>
             </DropdownItem>
           </li>
-          {/* Add more items as needed */}
         </ul>
         <Link
           to="/"
-          className="block px-4 py-2 mt-3 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700"
+          className="block px-4 py-3 mt-3 text-sm font-medium text-center text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/5"
         >
-          View All Notifications
+          Voir tout
         </Link>
       </Dropdown>
     </div>

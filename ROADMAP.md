@@ -6,7 +6,7 @@ This document outlines the current phase, immediate priorities, and long-term pr
 
 ## Current Phase
 
-TailAdmin template foundation imported. Project constitution created. Source code is in audit-and-cleanup stage.
+Foundation imported from admin template. Project constitution created. Source code is in audit-and-cleanup stage.
 
 ---
 

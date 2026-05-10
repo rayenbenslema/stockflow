@@ -4,6 +4,7 @@ import { DropdownItem } from "../ui/dropdown/DropdownItem";
 import { MoreDotIcon } from "../../icons";
 
 export default function DemographicCard() {
+  // Composant conservé comme infrastructure UI — données démo neutres
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleDropdown() {
@@ -18,10 +19,10 @@ export default function DemographicCard() {
       <div className="flex justify-between">
         <div>
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
-            Customers Demographic
+            Répartition
           </h3>
           <p className="mt-1 text-gray-500 text-theme-sm dark:text-gray-400">
-            Number of customer based on country
+            Répartition par catégorie
           </p>
         </div>
         <div className="relative inline-block">
@@ -52,14 +53,14 @@ export default function DemographicCard() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="items-center w-full rounded-full max-w-8">
-              <img src="./images/country/country-01.svg" alt="usa" />
+              <img src="./images/country/country-01.svg" alt="Catégorie A" />
             </div>
             <div>
               <p className="font-semibold text-gray-800 text-theme-sm dark:text-white/90">
-                USA
+                Catégorie A
               </p>
               <span className="block text-gray-500 text-theme-xs dark:text-gray-400">
-                2,379 Customers
+                2 379 articles
               </span>
             </div>
           </div>
@@ -77,14 +78,14 @@ export default function DemographicCard() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="items-center w-full rounded-full max-w-8">
-              <img src="./images/country/country-02.svg" alt="france" />
+              <img src="./images/country/country-02.svg" alt="Catégorie B" />
             </div>
             <div>
               <p className="font-semibold text-gray-800 text-theme-sm dark:text-white/90">
-                France
+                Catégorie B
               </p>
               <span className="block text-gray-500 text-theme-xs dark:text-gray-400">
-                589 Customers
+                589 articles
               </span>
             </div>
           </div>
