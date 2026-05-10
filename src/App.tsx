@@ -11,7 +11,9 @@ import Home from "./pages/Dashboard/Home";
 import RouteLoader from "./components/common/RouteLoader";
 import AppErrorBoundary from "./components/common/AppErrorBoundary";
 import { ProtectedRoute } from "./features/auth/components/ProtectedRoute";
+import { WorkspaceGuard } from "./features/settings/components/WorkspaceGuard";
 import { useAuth } from "./features/auth/hooks/useAuth";
+import { useWorkspace } from "./features/settings/hooks/useWorkspace";
 
 const SignIn = lazy(() => import("./pages/AuthPages/SignIn"));
 const SignUp = lazy(() => import("./pages/AuthPages/SignUp"));
@@ -22,11 +24,21 @@ const BarChart = lazy(() => import("./pages/Charts/BarChart"));
 const Calendar = lazy(() => import("./pages/Calendar"));
 const BasicTables = lazy(() => import("./pages/Tables/BasicTables"));
 const FormElements = lazy(() => import("./pages/Forms/FormElements"));
+const BusinessOnboardingPage = lazy(
+  () => import("./features/settings/pages/BusinessOnboardingPage")
+);
 
 function PublicRoute({ children }: { children: ReactNode }) {
   const { user, isLoading } = useAuth();
   if (isLoading) return <RouteLoader />;
   if (user) return <Navigate to="/" replace />;
+  return <>{children}</>;
+}
+
+function OnboardingGuard({ children }: { children: ReactNode }) {
+  const { businesses, isLoading } = useWorkspace();
+  if (isLoading) return <RouteLoader />;
+  if (businesses.length > 0) return <Navigate to="/" replace />;
   return <>{children}</>;
 }
 
@@ -38,11 +50,13 @@ export default function App() {
         <AppErrorBoundary>
           <Suspense fallback={<RouteLoader />}>
             <Routes>
-              {/* Protected Dashboard Layout */}
+              {/* Protected Dashboard Layout (auth + workspace required) */}
               <Route
                 element={
                   <ProtectedRoute>
-                    <AppLayout />
+                    <WorkspaceGuard>
+                      <AppLayout />
+                    </WorkspaceGuard>
                   </ProtectedRoute>
                 }
               >
@@ -61,6 +75,18 @@ export default function App() {
                 <Route path="/line-chart" element={<LineChart />} />
                 <Route path="/bar-chart" element={<BarChart />} />
               </Route>
+
+              {/* Onboarding (auth required, no workspace yet) */}
+              <Route
+                path="/onboarding/business"
+                element={
+                  <ProtectedRoute>
+                    <OnboardingGuard>
+                      <BusinessOnboardingPage />
+                    </OnboardingGuard>
+                  </ProtectedRoute>
+                }
+              />
 
               {/* Public Auth Routes */}
               <Route path="/signin" element={<PublicRoute><SignIn /></PublicRoute>} />

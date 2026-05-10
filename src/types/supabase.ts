@@ -80,6 +80,14 @@ export interface Database {
     };
     Views: Record<string, never>;
     Functions: {
+      create_business_with_owner: {
+        Args: {
+          p_name: string;
+          p_legal_name?: string;
+          p_tax_identifier?: string;
+        };
+        Returns: string;
+      };
       is_business_member: {
         Args: { p_business_id: string };
         Returns: boolean;

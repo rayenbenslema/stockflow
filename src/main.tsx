@@ -6,13 +6,16 @@ import App from "./App.tsx";
 import { AppWrapper } from "./components/common/PageMeta.tsx";
 import { ThemeProvider } from "./context/ThemeContext.tsx";
 import { AuthProvider } from "./features/auth/AuthProvider.tsx";
+import { WorkspaceProvider } from "./features/settings/WorkspaceProvider.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider>
       <AppWrapper>
         <AuthProvider>
-          <App />
+          <WorkspaceProvider>
+            <App />
+          </WorkspaceProvider>
         </AuthProvider>
       </AppWrapper>
     </ThemeProvider>
