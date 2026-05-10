@@ -1,27 +1,27 @@
 export type StockMovementType =
-  | "purchase_in"
-  | "sale_out"
-  | "adjustment_in"
-  | "adjustment_out"
+  | "initial"
+  | "purchase"
+  | "sale"
+  | "adjustment"
+  | "return_customer"
+  | "return_supplier"
   | "transfer_in"
   | "transfer_out"
-  | "return_in"
-  | "return_out"
-  | "initial";
+  | "damaged"
+  | "expired";
 
 export interface StockMovement {
   id: string;
+  businessId: string;
   productId: string;
   variantId?: string;
-  warehouseId?: string;
   movementType: StockMovementType;
   quantity: number;
-  unitCost: number;
-  totalCost: number;
-  referenceId?: string;
+  unitCost?: number;
   referenceType?: string;
+  referenceId?: string;
   notes?: string;
-  performedBy: string;
-  businessId: string;
+  metadata?: Record<string, unknown>;
+  createdBy?: string;
   createdAt: string;
 }

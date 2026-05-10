@@ -2,6 +2,7 @@ export interface ProductCategory {
   id: string;
   businessId: string;
   name: string;
+  slug?: string;
   parentId?: string;
 }
 
@@ -14,34 +15,37 @@ export interface ProductBrand {
 export interface ProductVariant {
   id: string;
   productId: string;
-  sku: string;
+  businessId: string;
+  name: string;
+  sku?: string;
   barcode?: string;
-  label: string;
-  costPrice: number;
-  salePrice: number;
-  stock: number;
-  thresholdAlert: number;
-  imageUrl?: string;
+  salePriceOverride?: number;
+  costPriceOverride?: number;
+  attributes?: Record<string, unknown>;
 }
 
 export interface Product {
   id: string;
   businessId: string;
-  name: string;
-  sku: string;
-  barcode?: string;
   categoryId?: string;
-  subcategoryId?: string;
   brandId?: string;
+  name: string;
+  slug?: string;
+  sku?: string;
+  barcode?: string;
+  description?: string;
+  imageUrl?: string;
   costPrice: number;
   salePrice: number;
-  marginPercent: number;
-  tvaRate: number;
-  thresholdAlert: number;
-  imageUrls: string[];
-  variants: ProductVariant[];
-  supplierId?: string;
-  isActive: boolean;
+  taxRate: number;
+  status: "active" | "archived" | "draft";
+  trackInventory: boolean;
+  lowStockThreshold?: number;
+  allowNegativeStock: boolean;
+  hasVariants: boolean;
+  metadata?: Record<string, unknown>;
+  createdBy?: string;
   createdAt: string;
   updatedAt: string;
+  deletedAt?: string;
 }
